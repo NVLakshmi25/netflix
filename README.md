@@ -4964,7 +4964,7 @@ main.jsx
 Connects Redux store to React using Provider
 
 This is the Redux portion of your Netflix project from beginner level through the actual implementation you're using.
------------------------------------------------------------------------
+-----------------------------------------------------------------------   
 User clicks "Sign Out"
         ↓
 handleSignOut()
