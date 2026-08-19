@@ -2,93 +2,85 @@ import React from "react";
 import MovieCard from "./MovieCard";
 
 const MovieList = ({ title, movies }) => {
-
   if (!movies || movies.length === 0) {
     return null;
   }
 
-
   return (
-
     <section
       className="
-        mb-7
+        relative
         w-full
 
-        sm:mb-8
-
-        md:mb-10
-
-        lg:mb-12
+        mb-6
+        sm:mb-7
+        md:mb-8
       "
     >
-
-      {/* =====================================
-          TITLE
-      ====================================== */}
-
+      {/* TITLE */}
       <h2
         className="
-          mb-3
-          px-1
+          mb-2
+          px-4
 
           text-lg
           font-bold
+          tracking-tight
           text-white
 
+          sm:px-6
           sm:text-xl
 
-          md:mb-4
+          md:px-8
           md:text-2xl
 
-          lg:text-3xl
+          lg:text-[26px]
         "
       >
         {title}
       </h2>
 
-
-      {/* =====================================
-          MOVIE ROW
-      ====================================== */}
-
+      {/* MOVIE ROW */}
       <div
         className="
           flex
           w-full
 
           gap-2
+          sm:gap-2.5
+          md:gap-3
 
           overflow-x-auto
           overflow-y-hidden
 
+          px-4
+          sm:px-6
+          md:px-8
+
+          pb-3
+
           scroll-smooth
 
-          pb-4
+          snap-x
+          snap-mandatory
 
-          sm:gap-3
-
-          md:gap-4
-
-          lg:gap-5
-
-          scrollbar-hide
+          [-ms-overflow-style:none]
+          [scrollbar-width:none]
+          [&::-webkit-scrollbar]:hidden
         "
       >
-
         {movies.map((movie) => (
-
-          <MovieCard
+          <div
             key={movie.id}
-            posterPath={movie.poster_path}
-          />
-
+            className="snap-start"
+          >
+            <MovieCard
+              posterPath={movie.poster_path}
+            />
+          </div>
         ))}
-
       </div>
-
     </section>
-
   );
 };
 

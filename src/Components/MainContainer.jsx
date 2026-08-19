@@ -5,7 +5,6 @@ import VideoTitle from "./VideoTitle";
 import VideoBackground from "./VideoBackground";
 
 const MainContainer = () => {
-
   const movies = useSelector(
     (store) => store.movies?.nowPlayingMovies
   );
@@ -13,14 +12,11 @@ const MainContainer = () => {
   const videoRef = useRef(null);
 
   const [isPlaying, setIsPlaying] = useState(true);
-
   const [isMuted, setIsMuted] = useState(true);
-
 
   if (!movies || movies.length === 0) {
     return null;
   }
-
 
   const mainMovie = movies[0];
 
@@ -30,91 +26,59 @@ const MainContainer = () => {
     id,
   } = mainMovie;
 
-
-  // ==============================
   // PLAY / PAUSE
-  // ==============================
-
   const handlePlayPause = () => {
-
     if (isPlaying) {
-
       videoRef.current?.pauseVideo();
-
       setIsPlaying(false);
-
     } else {
-
       videoRef.current?.playVideo();
-
       setIsPlaying(true);
-
     }
   };
 
-
-  // ==============================
-  // SOUND ON / OFF
-  // ==============================
-
+  // MUTE / UNMUTE
   const handleMute = () => {
-
     if (isMuted) {
-
-      // 🔊 SOUND ON
       videoRef.current?.unMuteVideo();
-
       setIsMuted(false);
-
     } else {
-
-      // 🔇 SOUND OFF
       videoRef.current?.muteVideo();
-
       setIsMuted(true);
     }
   };
 
-
   return (
-    <main className="relative w-full overflow-hidden bg-black">
-
+    <main className="relative w-full bg-black text-white">
+      {/* HERO */}
       <section
         className="
           relative
           w-full
           overflow-hidden
+          bg-black
 
           h-[500px]
-
-          sm:h-[550px]
-
-          md:h-[600px]
-
-          lg:h-[650px]
-
-          xl:h-[700px]
-
-          2xl:h-[750px]
+          sm:h-[540px]
+          md:h-[590px]
+          lg:h-[640px]
+          xl:h-[680px]
         "
       >
-
-        {/* VIDEO */}
-
+        {/* BACKGROUND VIDEO */}
         <VideoBackground
           ref={videoRef}
           movieId={id}
         />
 
-
         {/* DARK OVERLAY */}
-
         <div
           className="
             pointer-events-none
             absolute
             inset-0
             z-10
+
             bg-gradient-to-t
             from-black
             via-black/30
@@ -122,25 +86,57 @@ const MainContainer = () => {
           "
         />
 
-
-        {/* LEFT OVERLAY */}
-
+        {/* LEFT CINEMATIC GRADIENT */}
         <div
           className="
             pointer-events-none
             absolute
             inset-0
             z-10
+
             bg-gradient-to-r
-            from-black/70
-            via-black/20
+            from-black/85
+            via-black/35
             to-transparent
           "
         />
 
+        {/* TOP DARK GRADIENT */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-x-0
+            top-0
+            z-10
+            h-32
 
-        {/* MOVIE TITLE */}
+            bg-gradient-to-b
+            from-black/70
+            to-transparent
+          "
+        />
 
+        {/* BOTTOM FADE */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            bottom-0
+            left-0
+            right-0
+            z-10
+
+            h-48
+
+            bg-gradient-to-t
+            from-black
+            via-black/80
+            to-transparent
+          "
+        />
+
+        {/* MOVIE CONTENT */}
         <VideoTitle
           title={original_title}
           overview={overview}
@@ -149,9 +145,7 @@ const MainContainer = () => {
           onPlayPause={handlePlayPause}
           onMute={handleMute}
         />
-
       </section>
-
     </main>
   );
 };

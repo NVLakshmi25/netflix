@@ -1,84 +1,88 @@
 import React from "react";
-
 import { IMG_CDN } from "../Utils/Constants";
 
-
 const MovieCard = ({ posterPath }) => {
-
   if (!posterPath) {
     return null;
   }
 
-
   return (
-
     <div
       className="
         group
+        relative
         flex-shrink-0
         cursor-pointer
 
-        w-[110px]
+        w-[105px]
+        sm:w-[125px]
+        md:w-[145px]
+        lg:w-[165px]
+        xl:w-[180px]
 
-        sm:w-[130px]
+        transition-all
+        duration-300
+        ease-out
 
-        md:w-[150px]
-
-        lg:w-[170px]
-
-        xl:w-[190px]
+        hover:z-30
+        hover:scale-105
       "
     >
-
       <div
         className="
+          relative
           overflow-hidden
           rounded-md
-          bg-gray-900
+          bg-zinc-900
 
-          shadow-lg
-
+          shadow-md
           transition-all
           duration-300
-          ease-in-out
 
-          group-hover:scale-105
-          group-hover:z-20
-
-          md:group-hover:scale-110
+          group-hover:shadow-2xl
         "
       >
-
         <img
           src={IMG_CDN + posterPath}
           alt="Movie Poster"
-
           loading="lazy"
-
           className="
-            h-[165px]
+            block
             w-full
             object-cover
 
-            sm:h-[195px]
-
-            md:h-[225px]
-
-            lg:h-[255px]
-
-            xl:h-[285px]
+            aspect-[2/3]
 
             transition-transform
             duration-300
+            ease-out
+
+            group-hover:scale-105
           "
         />
 
+        {/* HOVER GRADIENT */}
+        <div
+          className="
+            pointer-events-none
+            absolute
+            inset-0
+
+            bg-gradient-to-t
+            from-black/40
+            via-transparent
+            to-transparent
+
+            opacity-0
+            transition-opacity
+            duration-300
+
+            group-hover:opacity-100
+          "
+        />
       </div>
-
     </div>
-
   );
 };
-
 
 export default MovieCard;

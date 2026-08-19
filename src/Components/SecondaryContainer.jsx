@@ -11,7 +11,21 @@ const SecondaryContainer = () => {
   }
 
   return (
-    <div className="relative z-20 bg-black -mt-20 pb-16">
+     <section
+      className="
+        relative
+        z-20
+        -mt-16
+        bg-black
+
+        pt-2
+        pb-8
+
+        sm:-mt-20
+        md:-mt-24
+        md:pt-3
+      "
+    >
 
       <MovieList
         title="Now Playing"
@@ -38,7 +52,8 @@ const SecondaryContainer = () => {
         movies={movies.upcomingMovies}
       />
 
-    </div>
+   
+        </section>
   );
 };
 
