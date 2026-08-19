@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import Header from "./Header";
 
-import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import useNowPlayingMovies from "../Hooks/useNowPlayingMovies";
 import usePopularMovies from "../Hooks/usePopularMovies";
 import useTrendingMovies from "../Hooks/useTrendingMovies";
 import useHorrorMovies from "../Hooks/useHorrorMovies";

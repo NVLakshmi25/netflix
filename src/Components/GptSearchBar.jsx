@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import lang from "../Utils/LanguageConstants";
 import { API_OPTIONS } from "../Utils/Constants";
-import { addGptMovieResults } from "../Utils/gptSlice";
+import { addGptMovieResults } from "../Utils/GptSlice";
 
 const GptSearchBar = () => {
   const dispatch = useDispatch();
