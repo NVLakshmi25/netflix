@@ -6,7 +6,7 @@ import React, {
 } from "react";
 
 import { useSelector } from "react-redux";
-import useMovieTrailer from "../hooks/useMovieTrailer";
+import useMovieTrailer from "../Hooks/useMovieTrailer";
 
 const VideoBackground = forwardRef(({ movieId }, ref) => {
   const iframeRef = useRef(null);
