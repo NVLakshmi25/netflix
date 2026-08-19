@@ -586,6 +586,7 @@ const Login = () => {
               w-full
               rounded
               bg-red-600
+              cursor-pointer
 
               py-3
 
