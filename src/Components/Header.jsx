@@ -78,8 +78,6 @@ const Header = () => {
           from-black/95
           via-black/60
           to-transparent
-          sm:bg-blue-900
-          md:bg-green-900
         "
       >
         <div
